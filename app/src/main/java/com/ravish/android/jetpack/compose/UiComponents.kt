@@ -1,6 +1,7 @@
 package com.ravish.android.jetpack.compose
 
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -18,7 +19,11 @@ import androidx.compose.ui.unit.dp
 
 @Composable
 fun CarCard(car: Car) {
-    Surface(shape = RoundedCornerShape(8.dp), elevation = 8.dp) {
+    Surface(
+        shape = RoundedCornerShape(8.dp),
+        elevation = 8.dp,
+        modifier = Modifier.padding(16.dp)
+    ) {
         Column(modifier = Modifier.fillMaxWidth()) {
             val image = painterResource(car.imageResource)
             Image(
@@ -29,7 +34,7 @@ fun CarCard(car: Car) {
                     .fillMaxWidth()
                     .height(144.dp)
             )
-            Column(modifier =  Modifier.padding(16.dp)) {
+            Column(modifier = Modifier.padding(16.dp)) {
                 Text(car.name, style = MaterialTheme.typography.h4)
             }
         }
